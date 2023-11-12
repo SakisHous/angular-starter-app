@@ -1,0 +1,10 @@
+<div class="d-flex flex-column gap-2">
+  <div class="form-group">
+    <label class="form-label">Search for user id</label>
+    <input type="number" class="form-control" #userId/>
+    <div *ngIf="!userIsFound" class="text-danger">
+      User Id is not found!
+    </div>
+    <button (click)="onSearch()" class="btn btn-primary m-2">Search</button>
+  </div>
+</div>

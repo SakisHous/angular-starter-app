@@ -1,0 +1,25 @@
+<div class="border border-2 border-secondary m-2">
+  <div class="bg-info text-center">
+    Event bind Component
+  </div>
+  <div class="row mt-2 p-2">
+    <div class="col">
+      <p>Button is clicked {{ count }} times</p>
+    </div>
+    <div class="col">
+      <button (click)="increaseCounter()" class="btn btn-primary ms-2">Click</button>
+    </div>
+  </div>
+  <div class="col">
+    <button (click)="resetCounter()" class="btn btn-info ms-2">Reset</button>
+  </div>
+  <div class="row mt-2 p-2">
+    <div class="col">
+      {{ userInput }}
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" 
+      [value]="userInput" (input)="onUserInput($event)" />
+    </div>
+  </div>
+</div>

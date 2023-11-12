@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" (click)="onSelection('create')" role="button">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onSelection('read')" role="button">Read User</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onSelection('update')" role="button">Update User</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onSelection('delete')" role="button">Delete</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="onSelection('list')" role="button">List Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="d-flex flex-column gap-2">
+  <ng-container *ngIf="crudOperation" [ngSwitch]="crudOperation">
+    <ng-container *ngSwitchCase="'create'">
+      <app-create-user (userCreated)="listUsers()"></app-create-user>
+    </ng-container>
+    <ng-container *ngSwitchCase="'read'">
+      <app-read-user></app-read-user>
+    </ng-container>
+    <ng-container *ngSwitchCase="'update'">
+      <app-update-user (userUpdated)="listUsers()"></app-update-user>
+    </ng-container>
+    <ng-container *ngSwitchCase="'delete'">
+      <app-delete-user (userDeleted)="listUsers()"></app-delete-user>
+    </ng-container>
+    <ng-container *ngSwitchCase="'list'">
+      <app-list-users></app-list-users>
+    </ng-container>
+  </ng-container>
+</div>
+
